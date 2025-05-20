@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Logo {
+  id   Int    @id @default(autoincrement())
+  team String @unique
+  url  String
+}
+
+model Fixture {
+  id         Int      @id @default(autoincrement())
+  sport      String
+  gender     String
+  team1      String
+  team2      String
+  team1Logo  String?
+  team2Logo  String?
+  team1Score Int
+  team2Score Int
+  date       DateTime
+  time       String
+  venue      String
+  status     String   @default("not_started")
+}
