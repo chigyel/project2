@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPen, faCalendarAlt, faClock, faMapMarkerAlt, faTag } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
 import { formatDate, formatTime, getStatusBadge } from '../utils/helpers';
 
 export default function FixtureCard({ 
@@ -27,11 +28,27 @@ export default function FixtureCard({
               </>
             )}
             <div className="d-flex align-items-center mb-2">
-              {fixture.team1Logo && <img src={fixture.team1Logo} alt={`${fixture.team1} logo`} className="team-logo" />}
+              {fixture.team1Logo && (
+                <Image 
+                  src={fixture.team1Logo} 
+                  alt={`${fixture.team1} logo`} 
+                  width={50} 
+                  height={50} 
+                  className="team-logo" 
+                />
+              )}
               <h5 className="team-name">
                 {fixture.team1} {fixture.team1Score || '0'} - {fixture.team2Score || '0'} {fixture.team2}
               </h5>
-              {fixture.team2Logo && <img src={fixture.team2Logo} alt={`${fixture.team2} logo`} className="team-logo" />}
+              {fixture.team2Logo && (
+                <Image 
+                  src={fixture.team2Logo} 
+                  alt={`${fixture.team2} logo`} 
+                  width={50} 
+                  height={50} 
+                  className="team-logo" 
+                />
+              )}
             </div>
             <p className="mb-1" dangerouslySetInnerHTML={{ __html: getStatusBadge(fixture.status) }} />
             <p className="mb-1">

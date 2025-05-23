@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { isValidUrl } from '../utils/helpers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
 
 export default function ManageLogos() {
   const router = useRouter();
@@ -155,12 +156,12 @@ export default function ManageLogos() {
                 <div className="card" style={{ height: '70px' }}>
                   <div className="card-body d-flex align-items-center justify-content-between p-2">
                     <div className="d-flex align-items-center">
-                      <img 
+                      <Image 
                         src={logo.url} 
                         alt={`${logo.team} logo`} 
+                        width={35}
+                        height={35}
                         style={{ 
-                          width: '35px', 
-                          height: '35px', 
                           marginRight: '10px',
                           objectFit: 'contain'
                         }} 

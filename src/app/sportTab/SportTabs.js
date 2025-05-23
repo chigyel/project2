@@ -580,7 +580,7 @@ onChange={(e) => setNewFixture({ ...newFixture, venue: e.target.value })}
         </Modal.Footer>
       </Modal>
 
-      {/* Update Score Modal */}  
+      {/* Update Score Modal */  
       <Modal show={showScoreModal} onHide={() => setShowScoreModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Update Score</Modal.Title>
