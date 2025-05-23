@@ -49,7 +49,7 @@ export default function FixtureCard({
             {showSportInfo && (
               <p className="mb-0">
                 <FontAwesomeIcon icon={faTag} className="fixture-details-icon" />
-                {sport.charAt(0).toUpperCase() + sport.slice(1)} ({gender === 'mens' ? "Men's" : "Women's"})
+                {sport.charAt(0).toUpperCase() + sport.slice(1)} ({gender === 'mens' ? "Men&apos;s" : "Women&apos;s"})
               </p>
             )}
           </div>

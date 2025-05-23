@@ -316,7 +316,7 @@ useEffect(() => {
                     border: '1px solid #dee2e6'
                   }}
                 >
-                  Men's
+                  Men&apos;s
                 </button>
                 <button
                   className={`btn ${currentGender === 'womens' ? 'btn-primary' : 'btn-light'}`}
@@ -327,7 +327,7 @@ useEffect(() => {
                     border: '1px solid #dee2e6'
                   }}
                 >
-                  Women's
+                  Women&apos;s
                 </button>
               </div>
             </div>
@@ -356,7 +356,7 @@ useEffect(() => {
               <div className="col-12">
                 <div className="empty-state">
                   <i className="fas fa-calendar-times"></i>
-                  <h5>No {currentGender === 'mens' ? "Men's" : "Women's"} {currentSport.charAt(0).toUpperCase() + currentSport.slice(1)} fixtures available</h5>
+                  <h5>No {currentGender === 'mens' ? "Men&apos;s" : "Women&apos;s"} {currentSport.charAt(0).toUpperCase() + currentSport.slice(1)} fixtures available</h5>
                   <p>Click the "Add Fixture" button to add some matches!</p>
                 </div>
               </div>
@@ -446,8 +446,8 @@ useEffect(() => {
                   value={newFixture.gender}
                   onChange={(e) => setNewFixture({ ...newFixture, gender: e.target.value })}
                 >
-                  <option value="mens">Men's</option>
-                  <option value="womens">Women's</option>
+                  <option value="mens">Men&apos;s</option>
+                  <option value="womens">Women&apos;s</option>
                 </select>
               </div>
             </div>
