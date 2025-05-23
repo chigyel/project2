@@ -8,14 +8,14 @@ export default function GenderToggle({ sport, currentGender, setCurrentGender })
         className={`gender-toggle ${currentGender === 'mens' ? 'active btn-primary' : 'btn-outline-primary'}`}
         onClick={() => setCurrentGender('mens')}
       >
-        Men's
+        Men&apos;s
       </Button>
       <Button
         type="button"
         className={`gender-toggle ${currentGender === 'womens' ? 'active btn-primary' : 'btn-outline-primary'}`}
         onClick={() => setCurrentGender('womens')}
       >
-        Women's
+        Women&apos;s
       </Button>
     </div>
   );

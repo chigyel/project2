@@ -357,7 +357,7 @@ useEffect(() => {
                 <div className="empty-state">
                   <i className="fas fa-calendar-times"></i>
                   <h5>No {currentGender === 'mens' ? "Men&apos;s" : "Women&apos;s"} {currentSport.charAt(0).toUpperCase() + currentSport.slice(1)} fixtures available</h5>
-                  <p>Click the "Add Fixture" button to add some matches!</p>
+                  <p>Click the &quot;Add Fixture&quot; button to add some matches!</p>
                 </div>
               </div>
             )}
@@ -401,7 +401,7 @@ useEffect(() => {
                 <div className="empty-state">
                   <i className="fas fa-calendar-times"></i>
                   <h5>No fixtures available</h5>
-                  <p>Click the "Add Fixture" button to add some matches!</p>
+                  <p>Click the &quot;Add Fixture&quot; button to add some matches!</p>
                 </div>
               </div>
             )}
