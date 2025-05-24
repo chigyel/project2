@@ -50,7 +50,6 @@ export default function SportTabs({
     status: 'not_started'
   });
 
-  // Fetch logos when component mounts
   useEffect(() => {
     const fetchLogos = async () => {
       try {
@@ -77,23 +76,20 @@ export default function SportTabs({
   ];
   const [teamList, setTeamList] = useState([]);
 
-useEffect(() => {
-  const fetchTeams = async () => {
-    try {
-      const response = await fetch('/api/teams');
-      const text = await response.text(); // Read raw response
-      console.log('Raw /api/teams response:', text); // 👀 Check browser console
-      const data = JSON.parse(text); // Try converting text to JSON
-      setTeamList(data);
-    } catch (error) {
-      console.error('Error fetching teams:', error);
-    }
-  };
-
-  fetchTeams();
-}, []);
-
-
+  useEffect(() => {
+    const fetchTeams = async () => {
+      try {
+        const response = await fetch('/api/teams');
+        const text = await response.text();
+        console.log('Raw /api/teams response:', text);
+        const data = JSON.parse(text);
+        setTeamList(data);
+      } catch (error) {
+        console.error('Error fetching teams:', error);
+      }
+    };
+    fetchTeams();
+  }, []);
 
   const handleSportChange = (sport) => {
     setCurrentSport(sport);
@@ -102,7 +98,6 @@ useEffect(() => {
   const handleAddFixture = async (e) => {
     if (e && e.preventDefault) e.preventDefault();
 
-    // Basic validation
     if (
       !newFixture.sport ||
       !newFixture.gender ||
@@ -116,7 +111,6 @@ useEffect(() => {
       return;
     }
 
-    // Prevent same teams
     if (newFixture.team1 === newFixture.team2) {
       alert('Team 1 and Team 2 cannot be the same.');
       return;
@@ -130,14 +124,12 @@ useEffect(() => {
       });
 
       if (res.status === 201) {
-        // Fetch updated fixtures from the database
         const fixturesRes = await fetch('/api/fixture');
         if (!fixturesRes.ok) {
           throw new Error('Failed to fetch updated fixtures');
         }
         const fixturesData = await fixturesRes.json();
         
-        // Organize fixtures by sport and gender
         const organizedFixtures = {
           football: { mens: [], womens: [] },
           volleyball: { mens: [], womens: [] },
@@ -152,8 +144,6 @@ useEffect(() => {
         });
 
         setFixtures(organizedFixtures);
-
-        // Reset form and close modal
         setNewFixture({
           sport: 'football',
           gender: 'mens',
@@ -190,11 +180,9 @@ useEffect(() => {
         });
 
         if (res.ok) {
-          // Fetch updated fixtures from the database
           const fixturesRes = await fetch('/api/fixture');
           const fixturesData = await fixturesRes.json();
           
-          // Organize fixtures by sport and gender
           const organizedFixtures = {
             football: { mens: [], womens: [] },
             volleyball: { mens: [], womens: [] },
@@ -227,7 +215,6 @@ useEffect(() => {
     const { sport, gender, index } = fixtureToUpdateScore;
     const fixture = fixtures[sport][gender][index];
 
-    // Get updated values
     const updatedScore = {
       id: fixture.id,
       team1Score: parseInt(document.getElementById('team1-score').value, 10),
@@ -247,7 +234,6 @@ useEffect(() => {
       }
 
       const updatedFixture = await res.json();
-
       const updatedFixtures = { ...fixtures };
       updatedFixtures[sport][gender][index] = updatedFixture;
 
@@ -300,7 +286,6 @@ useEffect(() => {
         </div>
       </div>
 
-      {/* Render sport content */}
       {currentSport !== 'all' && (
         <div id={`${currentSport}-content`} className="sport-content active">
           <div className="d-flex justify-content-between align-items-center mb-4">
@@ -365,7 +350,6 @@ useEffect(() => {
         </div>
       )}
 
-      {/* Render all fixtures */}
       {currentSport === 'all' && (
         <div id="all-content" className="sport-content active">
           <h2>All Fixtures</h2>
@@ -409,7 +393,6 @@ useEffect(() => {
         </div>
       )}
 
-      {/* Add Fixture Modal */}
       <Modal show={showAddFixtureModal} onHide={() => setShowAddFixtureModal(false)} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>Add New Fixture</Modal.Title>
@@ -554,7 +537,6 @@ useEffect(() => {
         </Modal.Body>
       </Modal>
 
-      {/* Delete Confirmation Modal */}
       <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Confirm Deletion</Modal.Title>
@@ -572,7 +554,6 @@ useEffect(() => {
         </Modal.Footer>
       </Modal>
 
-      {/* Update Score Modal */}
       <Modal show={showScoreModal} onHide={() => setShowScoreModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Update Score</Modal.Title>
