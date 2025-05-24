@@ -316,7 +316,7 @@ useEffect(() => {
                     border: '1px solid #dee2e6'
                   }}
                 >
-                  Men&apos;s
+                  Men's
                 </button>
                 <button
                   className={`btn ${currentGender === 'womens' ? 'btn-primary' : 'btn-light'}`}
@@ -327,7 +327,7 @@ useEffect(() => {
                     border: '1px solid #dee2e6'
                   }}
                 >
-                  Women&apos;s
+                  Women's
                 </button>
               </div>
             </div>
@@ -356,8 +356,8 @@ useEffect(() => {
               <div className="col-12">
                 <div className="empty-state">
                   <i className="fas fa-calendar-times"></i>
-                  <h5>No {currentGender === 'mens' ? "Men&apos;s" : "Women&apos;s"} {currentSport.charAt(0).toUpperCase() + currentSport.slice(1)} fixtures available</h5>
-                  <p>Click the &quot;Add Fixture&quot; button to add some matches!</p>
+                  <h5>No {currentGender === 'mens' ? "Men's" : "Women's"} {currentSport.charAt(0).toUpperCase() + currentSport.slice(1)} fixtures available</h5>
+                  <p>Click the "Add Fixture" button to add some matches!</p>
                 </div>
               </div>
             )}
@@ -401,7 +401,7 @@ useEffect(() => {
                 <div className="empty-state">
                   <i className="fas fa-calendar-times"></i>
                   <h5>No fixtures available</h5>
-                  <p>Click the &quot;Add Fixture&quot; button to add some matches!</p>
+                  <p>Click the "Add Fixture" button to add some matches!</p>
                 </div>
               </div>
             )}
@@ -415,12 +415,7 @@ useEffect(() => {
           <Modal.Title>Add New Fixture</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleAddFixture();
-            }}
-          >
+          <form onSubmit={handleAddFixture}>
             <div className="row">
               <div className="col-md-6 mb-3">
                 <label htmlFor="fixture-sport" className="form-label">Sport</label>
@@ -446,8 +441,8 @@ useEffect(() => {
                   value={newFixture.gender}
                   onChange={(e) => setNewFixture({ ...newFixture, gender: e.target.value })}
                 >
-                  <option value="mens">Men&apos;s</option>
-                  <option value="womens">Women&apos;s</option>
+                  <option value="mens">Men's</option>
+                  <option value="womens">Women's</option>
                 </select>
               </div>
             </div>
@@ -456,52 +451,49 @@ useEffect(() => {
               <div className="col-md-6 mb-3">
                 <label htmlFor="fixture-team1" className="form-label">Team 1</label>
                 <select
-  id="fixture-team1"
-  className="form-select"
-  required
-  value={newFixture.team1}
-  onChange={(e) => {
-    setNewFixture({
-      ...newFixture,
-      team1: e.target.value,
-      // Optional: if you want to link logo from logos[]
-      team1Logo: logos.find(logo => logo.team === e.target.value)?.url || ''
-    });
-  }}
->
-  <option value="">Select Team</option>
-  {teamList.map((team, index) => (
-    <option key={`team1-${team.teamName}`} value={team.teamName}>
-      {team.teamName}
-    </option>
-  ))}
-</select>
-
+                  id="fixture-team1"
+                  className="form-select"
+                  required
+                  value={newFixture.team1}
+                  onChange={(e) => {
+                    setNewFixture({
+                      ...newFixture,
+                      team1: e.target.value,
+                      team1Logo: logos.find(logo => logo.team === e.target.value)?.url || ''
+                    });
+                  }}
+                >
+                  <option value="">Select Team</option>
+                  {teamList.map((team) => (
+                    <option key={`team1-${team.teamName}`} value={team.teamName}>
+                      {team.teamName}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div className="col-md-6 mb-3">
                 <label htmlFor="fixture-team2" className="form-label">Team 2</label>
-               <select
-  id="fixture-team2"
-  className="form-select"
-  required
-  value={newFixture.team2}
-  onChange={(e) => {
-    setNewFixture({
-      ...newFixture,
-      team2: e.target.value,
-      team2Logo: logos.find(logo => logo.team === e.target.value)?.url || ''
-    });
-  }}
->
-  <option value="">Select Team</option>
-  {teamList.map((team, index) => (
-<option key={`team2-${team.teamName}`} value={team.teamName}>
-      {team.teamName}
-    </option>
-  ))}
-</select>
-
+                <select
+                  id="fixture-team2"
+                  className="form-select"
+                  required
+                  value={newFixture.team2}
+                  onChange={(e) => {
+                    setNewFixture({
+                      ...newFixture,
+                      team2: e.target.value,
+                      team2Logo: logos.find(logo => logo.team === e.target.value)?.url || ''
+                    });
+                  }}
+                >
+                  <option value="">Select Team</option>
+                  {teamList.map((team) => (
+                    <option key={`team2-${team.teamName}`} value={team.teamName}>
+                      {team.teamName}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
 
@@ -535,7 +527,7 @@ useEffect(() => {
                   className="form-select"
                   required
                   value={newFixture.venue}
-onChange={(e) => setNewFixture({ ...newFixture, venue: e.target.value })}
+                  onChange={(e) => setNewFixture({ ...newFixture, venue: e.target.value })}
                 >
                   <option value="">Select a venue</option>
                   <option value="Football Ground">Football Ground</option>
@@ -580,7 +572,7 @@ onChange={(e) => setNewFixture({ ...newFixture, venue: e.target.value })}
         </Modal.Footer>
       </Modal>
 
-      {/* Update Score Modal */  
+      {/* Update Score Modal */}
       <Modal show={showScoreModal} onHide={() => setShowScoreModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Update Score</Modal.Title>
