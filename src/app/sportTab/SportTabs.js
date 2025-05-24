@@ -247,7 +247,7 @@ export default function SportTabs({
   };
 
   return (
-    <>
+    <div>
       <div className="d-flex justify-content-between align-items-center mb-4">
         <ul className="nav nav-tabs" id="sportTabs">
           {sports.map((sport) => (
@@ -608,6 +608,6 @@ export default function SportTabs({
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
-} 
+}
