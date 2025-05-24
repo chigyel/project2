@@ -1,4 +1,3 @@
-// Force update for GitHub sync
 "use client";
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
