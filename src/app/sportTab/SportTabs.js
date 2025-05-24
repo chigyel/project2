@@ -610,4 +610,4 @@ export default function SportTabs({
       </Modal>
     </>
   );
-}
+} 
