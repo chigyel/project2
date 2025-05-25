@@ -1,6 +1,10 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/app/lib/prisma';
 
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs' // Keep as nodejs for Prisma compatibility
+export const fetchCache = 'force-no-store'
+
 export async function PUT(request) {
   try {
     const { id, team1Score, team2Score, status } = await request.json();
