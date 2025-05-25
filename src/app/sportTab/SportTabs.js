@@ -301,7 +301,7 @@ export default function SportTabs({
                     border: '1px solid #dee2e6'
                   }}
                 >
-                  Men's
+                  Mens
                 </button>
                 <button
                   className={`btn ${currentGender === 'womens' ? 'btn-primary' : 'btn-light'}`}
@@ -312,7 +312,7 @@ export default function SportTabs({
                     border: '1px solid #dee2e6'
                   }}
                 >
-                  Women's
+                  Womens
                 </button>
               </div>
             </div>
@@ -342,7 +342,7 @@ export default function SportTabs({
                 <div className="empty-state">
                   <i className="fas fa-calendar-times"></i>
                   <h5>No {currentGender === 'mens' ? "Men's" : "Women's"} {currentSport.charAt(0).toUpperCase() + currentSport.slice(1)} fixtures available</h5>
-                  <p>Click the "Add Fixture" button to add some matches!</p>
+                  <p>Click the Add Fixture button to add some matches</p>
                 </div>
               </div>
             )}
@@ -385,7 +385,7 @@ export default function SportTabs({
                 <div className="empty-state">
                   <i className="fas fa-calendar-times"></i>
                   <h5>No fixtures available</h5>
-                  <p>Click the "Add Fixture" button to add some matches!</p>
+                  <p>Click the Add Fixture button to add some matches</p>
                 </div>
               </div>
             )}
@@ -424,8 +424,8 @@ export default function SportTabs({
                   value={newFixture.gender}
                   onChange={(e) => setNewFixture({ ...newFixture, gender: e.target.value })}
                 >
-                  <option value="mens">Men's</option>
-                  <option value="womens">Women's</option>
+                  <option value="mens">Mens</option>
+                  <option value="womens">Womens</option>
                 </select>
               </div>
             </div>
