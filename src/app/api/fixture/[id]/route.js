@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/app/lib/prisma';
 
-export const runtime = 'nodejs'; // Add this
-export const fetchCache = 'force-no-store'; // Add this
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs' // Keep as nodejs for Prisma compatibility
+export const fetchCache = 'force-no-store'
 
 export async function DELETE(request, { params }) {
   try {

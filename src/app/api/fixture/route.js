@@ -1,6 +1,10 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/app/lib/prisma';
 
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs' // Keep as nodejs for Prisma compatibility
+export const fetchCache = 'force-no-store'
+
 // POST /api/fixtures - Add a new fixture
 export async function POST(request) {
   try {
