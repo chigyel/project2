@@ -2,6 +2,10 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/app/lib/prisma';
 
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs' // Keep as nodejs for Prisma compatibility
+export const fetchCache = 'force-no-store'
+
 // GET /api/logos - Get all logos
 export async function GET() {
   try {
