@@ -608,6 +608,8 @@ export default function SportTabs({
           </Button>
         </Modal.Footer>
       </Modal>
+      
     </div>
-  );
+  )
+
 }
